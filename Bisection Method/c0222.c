@@ -24,7 +24,6 @@ int main()
         mid_mark=(left_mark + right_mark)/2;
         if(arr[mid_mark] > target)
         {
-            printf("asd");
             right_mark=mid_mark - 1;
             continue;
         }
