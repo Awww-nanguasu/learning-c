@@ -19,19 +19,19 @@ int main()
     scanf("%d",&target);
     left_mark=0;
     right_mark=mark;
-    while(left_mark<right_mark)
+    while(left_mark<=right_mark)
     {
         mid_mark=(left_mark + right_mark)/2;
         if(arr[mid_mark] > target)
         {
             printf("asd");
             right_mark=mid_mark - 1;
+            continue;
         }
         if (arr[mid_mark] < target)
         {
-            printf("sadasf\n");
-            printf("%d\n",mid_mark);
             left_mark=mid_mark +1;
+            continue;
         }
         if(arr[mid_mark] = target)
         {
