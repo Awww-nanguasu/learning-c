@@ -54,7 +54,7 @@ int FindBoom(char MineBoard[ROWS][COLS],char ShowBoard[ROWS][COLS]){
             if (MineBoard[x][y]=='0')
             {
                 ret=Explore(MineBoard,x,y);
-                printf("%d\n",ret);
+//                printf("%d\n",ret);
                 ShowBoard[x][y]=ret;
                 DisplayBoard(ShowBoard); 
                 count++;
