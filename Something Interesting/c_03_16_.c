@@ -196,7 +196,7 @@ void game()
                     scanf("%d",&locate);
                     locatex=locate/10;  
                     locatey=locate%10;
-                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>=Hang*Line || locate<=11)
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<=11)
                     {
                        // printf("MineBoard[%d][%d]值为:%d",locatex,locatey,MineBoard[locatex-1][]);
                         printf("坐标不合法!\n");
@@ -230,7 +230,7 @@ void game()
                     locatex=locate/10;
                     locatey=locate%10;
                     printf("MineBoard[%d][%d]值为:",locatex,locatey);
-                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>=Hang*Line || locate<=11)
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<=11)
                     {
                         printf("坐标不合法!\n");
                         Sleep(500);
@@ -279,11 +279,11 @@ void menu()
         {
         case 1:
             //加载游戏
-            Loading(2);
+            //Loading(2);
             game();
             break;
         case 0:
-            Loading(1);
+            //Loading(1);
             break;
         default:
             printf("请输入正确的数字:\n");
