@@ -1,26 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#define Win 3   //胜利胜利棋子个数
+#define Win 3   //设置胜利棋子个数
 #define Jiange 10  //不要问这个是什么，跟Hang和Line保持一致就行了，不然你试试
 #define Line 10
 #define Hang 10
-//int IfLegal(int MineBoard[Hang][Line],int locate){
-//    int x,y;
-//    x=locate/10;
-//    y=locate%10;
-//    printf("%d\n",MineBoard[x][y]);
-//    if (MineBoard[x][y]!=0)
-//    {
-//        printf("坐标不合法!\n");
-//        Sleep(500);
-//        return 1;
-//    }
-//    else
-//    {
-//        return 0;
-//    }
-//}
 void ShowBoard1(int MineBoard[Hang][Line]){
     int i,j;
     for ( i = 0; i < Hang; i++)
