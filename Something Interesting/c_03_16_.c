@@ -1,17 +1,45 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
-#define Win 5   //胜利胜利棋子个数
+#define Win 3   //胜利胜利棋子个数
 #define Jiange 10  //不要问这个是什么，跟Hang和Line保持一致就行了，不然你试试
 #define Line 10
 #define Hang 10
+//int IfLegal(int MineBoard[Hang][Line],int locate){
+//    int x,y;
+//    x=locate/10;
+//    y=locate%10;
+//    printf("%d\n",MineBoard[x][y]);
+//    if (MineBoard[x][y]!=0)
+//    {
+//        printf("坐标不合法!\n");
+//        Sleep(500);
+//        return 1;
+//    }
+//    else
+//    {
+//        return 0;
+//    }
+//}
+void ShowBoard1(int MineBoard[Hang][Line]){
+    int i,j;
+    for ( i = 0; i < Hang; i++)
+    {
+        for ( j= 0; j< Line; j++)
+        {
+            printf("%d ",MineBoard[i][j]);
+        }
+        printf("\n");
+    }
+    
+}
 void Loading(int j)
 {
     int i;
-    char arr[15]="正在退出游戏";
-    char arr1[15]="正在加载游戏";
+    char arr[17]="正在退出游戏    \0";
+    char arr1[17]="正在加载游戏    \0";
     char arr2[1]="~";
-    for ( i = 12;i < 15; i++)
+    for ( i = 13;i < 16; i++)
     {
         if (j==1)
         {
@@ -32,7 +60,7 @@ void DisplayBoard(int locate,int MineBoard[Hang][Line],char set)
     int i,j,k,count,serial,serialx,serialy;
     count=1;
     serial=(count*10);
-    for ( i = 0; i < Hang-1; i++)
+    for ( i = 0; i < Hang; i++)
     {
         serial++;
         for ( j = 0; j < Line; j++,serial++)
@@ -97,8 +125,8 @@ int IsWin(int MineBoard[Hang][Line])
                         return 1;
                     }
                 }
-                //竖向判断输赢
-                if (hang<=Hang-Win+1)
+                //斜向判断输赢
+                if (hang<=Hang-Win+1 && lie<=Line-Win+1)
                 {
                     for (sum=0,k = 0; k < Win; k++)
                     {
@@ -115,8 +143,8 @@ int IsWin(int MineBoard[Hang][Line])
                         return 1;
                     }
                 }
-                //斜向判断输赢
-                if (hang<=Hang-Win+1 && lie<=Line-Win+1)
+                //竖向判断输赢
+                if (hang<=Hang-Win+1)
                 {
                     for (sum=0,k = 0; k < Win; k++)
                     {
@@ -158,7 +186,7 @@ int IsWin(int MineBoard[Hang][Line])
 }
 void game()
 {
-    int locate,locatex,locatey,ret=0;
+    int locate,locatex,locatey,ret,ret1=0;
     int count,player=-1;
     char player1='#'; //玩家1棋子
     char player2='*'; //玩家2棋子
@@ -167,6 +195,7 @@ void game()
     char ShowBoard[Hang][Line];
     //展示棋盘后进入输坐标循环
     DisplayBoard(locate,MineBoard,player1);
+    count=count%1-1;
     while (1)
     {
         if (count<=Hang*Line)
@@ -176,10 +205,25 @@ void game()
             //玩家1,2轮流下棋，此处代码重复，交给你优化了
             if (player==-1)
             {
-                printf("请玩家1输入下棋坐标:");
-                scanf("%d",&locate);
-                locatex=locate/10;  
-                locatey=locate%10;
+                do
+                {
+                    ShowBoard1(MineBoard);
+                    printf("请玩家1输入下棋坐标:");
+                    scanf("%d",&locate);
+                    locatex=locate/10;  
+                    locatey=locate%10;
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>=Hang*Line || locate<=11)
+                    {
+                       // printf("MineBoard[%d][%d]值为:%d",locatex,locatey,MineBoard[locatex-1][]);
+                        printf("坐标不合法!\n");
+                        Sleep(500);
+                        ret1= 1;
+                    }
+                    else
+                    {
+                        ret1= 0;
+                    }
+                } while (ret1);
                 MineBoard[locatex-1][locatey-1]=1; //让数组对应坐标为1
                 DisplayBoard(locate,MineBoard,player1);
                 count++;
@@ -195,10 +239,26 @@ void game()
             }
             if (player==1)
             {
-                printf("请玩家2输入下棋坐标:");
-                scanf("%d",&locate);
-                locatex=locate/10;
-                locatey=locate%10;
+                do
+                {
+                    printf("请玩家2输入下棋坐标:");
+                    scanf("%d",&locate);
+                    locatex=locate/10;
+                    locatey=locate%10;
+                    printf("MineBoard[%d][%d]值为:",locatex,locatey);
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>=Hang*Line || locate<=11)
+                    {
+                        printf("坐标不合法!\n");
+                        Sleep(500);
+                        ret1= 1;
+                    }
+                    else
+                    {
+                        ret1= 0;
+                    }
+//                    ret1=IfLegal(MineBoard,locate);
+                } while (ret1);
+//                printf("应当存入的地方为:MineBoard[%d][%d]\n",locatex-1,locatey-1);
                 MineBoard[locatex-1][locatey-1]=-1;
                 DisplayBoard(locate,MineBoard,player2);
                 count++;
@@ -217,12 +277,14 @@ void game()
         else
         {
             printf("平局\n");
+            break;
         }
     }
 }
 void menu()
 {
     int choose,x;
+    char ch;
     do{
         printf("###########################\n");
         printf("######1.Play 0.Exit #######\n");
@@ -234,7 +296,7 @@ void menu()
         case 1:
             //加载游戏
             Loading(2);
-            //game();
+            game();
             break;
         case 0:
             Loading(1);
