@@ -53,11 +53,11 @@ void DisplayBoard(int locate,int MineBoard[Hang][Line],char set)
             serialy=serial%10;
             if (MineBoard[serialx-1][serialy-1]==1)
             {
-                printf("# ");
+                printf("\033[1;31;40m# \033[0m");
             }
             if (MineBoard[serialx-1][serialy-1]==-1)
             {
-                printf("* ");
+                printf("\033[1;31;40m* \033[0m");
             }
             if (MineBoard[serialx-1][serialy-1]==0)
             {
@@ -191,12 +191,12 @@ void game()
             {
                 do
                 {
-                    ShowBoard1(MineBoard);
+//                    ShowBoard1(MineBoard);
                     printf("请玩家1输入下棋坐标:");
                     scanf("%d",&locate);
                     locatex=locate/10;  
                     locatey=locate%10;
-                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<=11)
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<11)
                     {
                        // printf("MineBoard[%d][%d]值为:%d",locatex,locatey,MineBoard[locatex-1][]);
                         printf("坐标不合法!\n");
@@ -229,8 +229,8 @@ void game()
                     scanf("%d",&locate);
                     locatex=locate/10;
                     locatey=locate%10;
-                    printf("MineBoard[%d][%d]值为:",locatex,locatey);
-                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<=11)
+//                    printf("MineBoard[%d][%d]值为:",locatex,locatey);
+                    if (MineBoard[locatex-1][locatey-1]!=0 || locate>(Hang+1)*Line || locate<11)
                     {
                         printf("坐标不合法!\n");
                         Sleep(500);
