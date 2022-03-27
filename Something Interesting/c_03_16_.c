@@ -53,11 +53,11 @@ void DisplayBoard(int locate,int MineBoard[Hang][Line],char set)
             serialy=serial%10;
             if (MineBoard[serialx-1][serialy-1]==1)
             {
-                printf("\033[1;31;40m# \033[0m");
+                printf("\033[1;33;40m# \033[0m");
             }
             if (MineBoard[serialx-1][serialy-1]==-1)
             {
-                printf("\033[1;31;40m* \033[0m");
+                printf("\033[1;33;40m* \033[0m");
             }
             if (MineBoard[serialx-1][serialy-1]==0)
             {
