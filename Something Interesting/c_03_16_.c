@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <windows.h>
 #define Win 3   //设置胜利棋子个数
-#define Jiange 3  //不要问这个是什么，跟Hang和Line保持一致就行了，不然你试试
-#define Line 3
-#define Hang 3
+#define Jiange 10  //不要问这个是什么，跟Hang和Line保持一致就行了，不然你试试
+#define Line 10
+#define Hang 10
 //此函数为调试用函数，可删除
 /*void ShowBoard1(int MineBoard[Hang][Line]){
     int i,j;
