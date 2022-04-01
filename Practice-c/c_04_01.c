@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<math.h>
+#include<time.h>
 //找公因式函数
 /*int SumCommonFactor(int x){
     int i,sum=0;
@@ -31,7 +32,7 @@ int main(){
     }
     return 0;
 }*/
-void IsCloseNum(int record[300]){
+void IsCloseNum(int record[20000]){
     int i,j,tmp;
     for ( i = 0; i < 20000; i++)
     {
