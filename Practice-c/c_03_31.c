@@ -2,7 +2,7 @@
 #include <math.h>
 int IsPrime(int x){
     int i;
-    for ( i = 2; i <sqrt(x) ; i++)
+    for ( i = 2; i <=sqrt(x) ; i++)
     {
         if (x%i==0)
         {
