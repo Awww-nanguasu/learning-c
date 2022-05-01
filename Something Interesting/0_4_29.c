@@ -75,7 +75,7 @@ void DisPlayBorad(int ShowBoard[11][11])
                 printf("\033[1;32;47m * \033[0m");
                 break;
             case 8:
-                printf("\033[1;30;40m[h]\033[0m");
+                printf("\033[1;30;40m[#]\033[0m");
                 break;
             case 9:
                 printf("\033[1;37;40m[@]\033[0m");
