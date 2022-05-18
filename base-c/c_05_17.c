@@ -1,11 +1,15 @@
 #include<stdio.h>
 #include<string.h>
-int main(){
-    char arr[3]="abc";
-    for (int i = 0; i < 4; i++)
+#include<stdlib.h>
+void main(){
+    char* ret;
+    char* a="@.";
+    char p[30];
+    printf("ÇëÊäÈëÄãµÄIPµØÖ·:");
+    scanf("%s",p);
+    for ( ret =strtok(p,a); ret!=NULL;ret=strtok(NULL,a) )
     {
-        printf("arr[3]:%d\n",arr[3]);
-        printf("%d %d\n",arr[i],i);
+        printf("%s\n",ret);
     }
     
 }
