@@ -31,13 +31,13 @@ void TestInsert(SeqList* SL,int pos,SeqListData data){
 }
 int main(){
     SeqList SL;
-    TestInit(&SL);
-    TestPushFront(&SL);
-    TestPushBack(&SL);
-    TestPopBack(&SL);
-    TestPopFront(&SL);
-    TestErase(&SL,100);
-    TestInsert(&SL,100,3);
+    TestInit(&SL);//≥ı ºªØ≤‚ ‘
+    TestPushFront(&SL);// ◊≤Â≤‚ ‘
+    TestPushBack(&SL);//Œ≤≤Â≤‚ ‘
+    TestPopBack(&SL);//Œ≤…æ≤‚ ‘
+    TestPopFront(&SL);// ◊…æ≤‚ ‘
+    TestErase(&SL,100);//…æ≥˝≤‚ ‘
+    TestInsert(&SL,100,3);//≤Â»Î≤‚ ‘
     for (int i = 0; i < SL.size; i++)
     {
         printf("%d ",*(SL.a+i));
