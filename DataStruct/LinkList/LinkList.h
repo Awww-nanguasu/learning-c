@@ -11,7 +11,7 @@ typedef struct LinkList
 LinkList* AddLinkListNode(LinkListData);
 void LinkListPushFront(LinkList**,LinkListData);
 void LinkListPushBack(LinkList*,LinkListData);
-void LinkListPopFront();
-void LinkListPopBack();
-void LinkListErase();
-void LinkListInsert();
+void LinkListPopFront(LinkList*);
+void LinkListPopBack(LinkList*);
+void LinkListErase(LinkList*,int pos);
+void LinkListInsert(LinkList*,int pos,LinkListData);

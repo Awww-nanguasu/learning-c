@@ -12,8 +12,16 @@ void TestLinkListPushBack(LinkList* Curpoint){
 }
 void TestLinkListPopFront(LinkList** CurPoint){
     LinkListPopFront(CurPoint);
-    LinkListPopFront(CurPoint);
-    LinkListPopFront(CurPoint);
+}
+void TestLinkListPopBack(LinkList* CurPoint){
+    LinkListPopBack(CurPoint);
+}
+void TestLinkListInsert(LinkList* CurPoint){
+    LinkListInsert(CurPoint,100,3);
+}
+
+void TestLinkListErase(LinkList* CurPoint){
+    LinkListErase(CurPoint,4);
 }
 int main(){
     LinkList LL;
@@ -23,6 +31,9 @@ int main(){
     TestLinkListPushFront(&CurPoint);
     TestLinkListPushBack(CurPoint);
     TestLinkListPopFront(&CurPoint);
+    TestLinkListPopBack(CurPoint);
+    TestLinkListInsert(CurPoint);
+    TestLinkListErase(CurPoint);
     while (CurPoint!=NULL)
     {
         printf("%d->",CurPoint->data);
