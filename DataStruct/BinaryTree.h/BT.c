@@ -8,7 +8,7 @@ typedef struct BinaryTree
 }BT;
 void CreatBT(BT* Tree1){
     char Input;
-    scanf("%c",&Input);
+    scanf("%c",&Input);//请一个个输入
     getchar();
     if (' '==Input)
     {
@@ -23,12 +23,12 @@ void CreatBT(BT* Tree1){
     }
     Tree1->Data=Input;
 }
-void Printf(BT* Tree1){
+void Printf(BT* Tree1,int Level){
     if (Tree1->Data!=' ')
     {
-        printf("%c ",Tree1->Data);
-        Printf(Tree1->LeftLeef);
-        Printf(Tree1->RightLeef);
+        printf("第%d层:%c\n",Level,Tree1->Data);
+        Printf(Tree1->LeftLeef,Level+1);
+        Printf(Tree1->RightLeef,Level+1);
     }
 }
 int main(){
@@ -37,5 +37,5 @@ int main(){
     Tree1.LeftLeef==NULL;
     Tree1.RightLeef==NULL;
     CreatBT(&Tree1);
-    Printf(&Tree1);
+    Printf(&Tree1,0);
 }
