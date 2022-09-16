@@ -29,11 +29,11 @@ int main(){
     LL.Next=NULL;
     LinkList* CurPoint=&LL;//将指针初始化为头指针
     TestLinkListPushFront(&CurPoint);
-    TestLinkListPushBack(CurPoint);
-    TestLinkListPopFront(&CurPoint);
-    TestLinkListPopBack(CurPoint);
-    TestLinkListInsert(CurPoint);
-    TestLinkListErase(CurPoint);
+    //TestLinkListPushBack(CurPoint);
+    //TestLinkListPopFront(&CurPoint);
+    //TestLinkListPopBack(CurPoint);
+    //TestLinkListInsert(CurPoint);
+    //TestLinkListErase(CurPoint);
     while (CurPoint!=NULL)
     {
         printf("%d->",CurPoint->data);

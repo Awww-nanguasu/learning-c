@@ -17,6 +17,7 @@ void LinkListPushFront(LinkList** CurPoint,LinkListData x){
     }
     else
         NewNode->Next=*CurPoint;
+        *CurPoint=NewNode;
 }
 void LinkListPushBack(LinkList* CurPoint,LinkListData x){
     while (CurPoint->Next!=NULL)
