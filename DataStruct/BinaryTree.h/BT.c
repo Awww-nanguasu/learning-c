@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<string.h>
 #include<stdlib.h>
+//c”Ô—‘±‡–¥£¨Œ¥ÕÍπ§
 typedef struct BinaryTree
 {
     int Data;
