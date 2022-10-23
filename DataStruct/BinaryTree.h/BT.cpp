@@ -6,51 +6,49 @@ void InitBTree(BT &T){
 bool BTreeEmpty(BT T){
     return &T;
 }
-void CreatBTree(BT* T){
+void CreatBTree(BTree &T){
     char Input;
     cin>>Input;
     if (Input=='^')
     {
-        T->LC=T->RC=NULL;
+        T=NULL;
     }
     else{
-        BT* NextL=new BT;
-        BT* NextR=new BT;
-        T->LC=NextL;
-        T->RC=NextR;
-        CreatBTree(NextL);
-        CreatBTree(NextR);
+        T->data=Input;
+        T->LC=new BT;
+        T->RC=new BT;
+        CreatBTree(T->LC);
+        CreatBTree(T->RC);
     }
-    T->data=Input;
 }
 // Elemtype BTreeValue(BT T,BT E){
 //     ;
 // }
-void FrontTravelBTree(BT* T){
-    if (T->data!='^'&&T)
+void FrontTravelBTree(BTree T){
+    if (T)
     {
         cout<<T->data;
         FrontTravelBTree(T->LC);
         FrontTravelBTree(T->RC);
     }
 }
-void MiddleTravelBTree(BT* T){
-    if (T->data!='^'&&T)
+void MiddleTravelBTree(BTree T){
+    if (T)
     {
         MiddleTravelBTree(T->LC);
         cout<<T->data;
         MiddleTravelBTree(T->RC);
     }
 }
-void AfterTravelBTree(BT* T){
-    if (T->data!='^'&&T)
+void AfterTravelBTree(BTree T){
+    if (T)
     {
         AfterTravelBTree(T->LC);
         AfterTravelBTree(T->RC);
         cout<<T->data;
     }
 }
-void CopyBTree(BT* T,BT* NewT){
+void CopyBTree(BTree T,BTree &NewT){
     if (T)
     {
         NewT->data=T->data;
@@ -63,10 +61,10 @@ void CopyBTree(BT* T,BT* NewT){
         NewT=NULL;
     }
 }
-int BTreeDepth(BT* T){
+int BTreeDepth(BTree T){
     if (!T)
     {
-        return -2;
+        return 0;
     }
     else{
         int n=BTreeDepth(T->LC);
