@@ -38,7 +38,7 @@ int KMP3(string A,string B){
             Next[k]=Next[Next[k]];
         }
     }
-    //ShowNext(Next,B.size());
+    ShowNext(Next,B.size());
     while (i<A.size() && j<B.size())
     {
         if (B[j]==A[i])
@@ -75,7 +75,7 @@ int KMP2(string A,string B){
         }
         Next[k++]=a+1;   
     }
-    //ShowNext(&Next[0],B.size());
+    ShowNext(&Next[0],B.size());
     while (i<A.size() && j<=B.size())
     {
         if (B[j]==A[i])
@@ -135,5 +135,5 @@ int KMP1(string A,string B){
     return i-j;
 }
 int main(){
-    cout<<"子串首下标为:"<<KMP2("abc","c")<<endl;
+    cout<<"子串首下标为:"<<KMP3("abc","abcaabbabcab")<<endl;
 }
