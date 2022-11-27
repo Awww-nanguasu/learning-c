@@ -1,0 +1,12 @@
+    // LinkListPushBack(&LL,49);
+    // LinkListPushBack(&LL,38);
+    // LinkListPushBack(&LL,65);
+    // LinkListPushBack(&LL,97);
+    // LinkListPushBack(&LL,76);
+    // LinkListPushBack(&LL,13);
+    // LinkListPushBack(&LL,27);
+    // LinkListPushBack(&LL,49);
+    // LinkListPushBack(&LL,55);
+    // LinkListPushBack(&LL,4);
+    // LinkListDisplay(LL);
+    // SimpleSelectionSort(&LL);
