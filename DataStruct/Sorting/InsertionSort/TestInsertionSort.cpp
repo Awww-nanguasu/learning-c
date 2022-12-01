@@ -1,4 +1,4 @@
-#include"D:\git-workspace\learning-c\DataStruct\Sorting\InsertionSort.cpp"
+#include"D:\git-workspace\learning-c\DataStruct\Sorting\InsertionSort\InsertionSort.cpp"
 int main(){
     SeqList SL;
     SeqListInit(&SL);
